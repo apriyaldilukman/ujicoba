@@ -1,48 +1,36 @@
-import React from 'react';
-import propTypes from 'react';
-import {Button} from 'semantic-ui-react';
+import React, {useState} from "react";
 
-class LoginForm extends React.Component {
-    state = {
+function LoginForm({Login, error}) {
+    const [details, setDetails] = useState({name: "", email:"", password:""});
+    
+    const submitHandler = e => {
+        e.preventDefault();
 
-        
-        data: {
-            username: '',
-            password: ''
-        },
-        loading: false,
-        errors: {} 
-    };
-
-    onChange = e => this.setState({data: {...this.state.data, [e.target.name]: e.target.value}}); 
-onSubmit = (e) => {
-    e.preventDefault();
-
-    this.props.submit(this.state.data);
-};
-
-render() {
-    const {data} = this.state;
-
-    return(
-        <form onSubmit = {this.onSubmit }>
-            <label htmlFor="username"><h4><b>Username</b></h4></label><br/>
-            <input type="username" placeholder="Enter Username" id="username" 
-            name="username" value={data.username} onChange = {this.onChange} required/>
-            <br/><br/>
-
-            <label htmlFor="password"><b>Password</b></label><br/>
-            <input type="password" placeholder="Enter Password" id="password" 
-            name="password" value={data.password} onChange = {this.onChange} required/>
-
-            <br/><br/>
-            <Button type="submit" primary>Login</Button>
-        </form>
-    );
+        Login(details);
     }
-}
 
-LoginForm.propTypes  = {
-    submit: propTypes.func.isRequired
-};
-export default LoginForm;
+    return (
+    <form onSubmit={submitHandler}>
+            <div className="form-inner">
+                <h4>LOGIN</h4>
+                {/* Error! */}
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label>
+                    <input type="text" name="name"  placeholder="name" id="name" onChange={e=> setDetails({...details, name: e.target.value})} value={details.name}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" name="email"  placeholder="email" id="email" onChange={e=> setDetails({...details, email: e.target.value})} value={details.email}/>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" name="password"  placeholder="password" id="password" onChange={e=> setDetails({...details, password: e.target.value})} value={details.password}/>
+                </div>
+                <input type="submit" value="LOGIN" />
+            </div>
+    </form>
+    )
+} 
+
+export default LoginForm
