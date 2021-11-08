@@ -96,6 +96,8 @@ form .form-inner input[type="submit"],
     color: #fff;
     font-weight: 700;
     cursor:  pointer ;
+    display: flex;
+    margin: 0 auto;
 }
 
 form .form-inner input[type="submit"]:hover,
@@ -126,4 +128,6 @@ background-position: 100% 0%;
     width: 70px;
     height: 70px;
     margin-bottom: 2rem;
+    display: flex;
+    margin: 0 auto;
 }

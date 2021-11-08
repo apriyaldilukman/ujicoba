@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import istLogo from "../../assets/images/istlogo.png";
-import Logo from "../../assets/images/logo512.png";
 
 function LoginForm({Login, error}) {
     const [details, setDetails] = useState({name: "", email:"", password:""});
@@ -15,7 +14,7 @@ function LoginForm({Login, error}) {
     <form onSubmit={submitHandler}>
             <div className="form-inner">
             <h4>FORM LOGIN</h4>
-            <img className="icon-img" src={Logo} alt="logo"/>
+            <img className="icon-img" src={istLogo} alt="logo"/>
                 {/* Error! */}
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
