@@ -122,3 +122,8 @@ background-position: 100% 0%;
     font-weight: 700;
 }
 
+.icon-img{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 2rem;
+}

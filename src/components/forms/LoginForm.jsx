@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import istLogo from "../../assets/images/istlogo.png";
+import Logo from "../../assets/images/logo512.png";
 
 function LoginForm({Login, error}) {
     const [details, setDetails] = useState({name: "", email:"", password:""});
@@ -12,7 +14,8 @@ function LoginForm({Login, error}) {
     return (
     <form onSubmit={submitHandler}>
             <div className="form-inner">
-                <h4>LOGIN</h4>
+            <h4>FORM LOGIN</h4>
+            <img className="icon-img" src={Logo} alt="logo"/>
                 {/* Error! */}
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
@@ -25,9 +28,9 @@ function LoginForm({Login, error}) {
 
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password"  placeholder="password" id="password" onChange={e=> setDetails({...details, password: e.target.value})} value={details.password}/>
+                    <input type="password"  name="password"  placeholder="password" id="password" onChange={e=> setDetails({...details, password: e.target.value})} value={details.password}/>
                 </div>
-                <input type="submit" value="LOGIN" />
+                <input type="submit" value="LOGIN"/>
             </div>
     </form>
     )
